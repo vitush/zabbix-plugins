@@ -142,7 +142,7 @@ def get_smtp_class(code):
 def get_smtp_date(line):
     if line is None:
         return None
-    m = re.search(r'^(\w+ \d+ \d+:\d+:\d+)', line)
+    m = re.search(r'^(\w+ {1,2}\d+ \d+:\d+:\d+)', line)
     if m is not None:
         mail_date  = "{0} {1}".format(m.group(1),time.strftime("%Y"))
         return  datetime.datetime.strptime(mail_date, "%b %d %H:%M:%S %Y")
